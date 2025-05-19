@@ -6,6 +6,9 @@ import Rootlayout from "../Rootlayout";
 import Home from "../pages/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import ErrorPage from "../pages/ErrorPage";
+import Mygroups from "../pages/Mygroups";
+import Newgroup from "../pages/Newgroup";
 
  
 
@@ -13,6 +16,7 @@ import Register from "../components/Register";
   {
     path: "/",
     Component:Rootlayout,
+     errorElement:<ErrorPage></ErrorPage>,
     children:[
 
         {
@@ -27,6 +31,15 @@ import Register from "../components/Register";
       path:"/register",
        Component:Register
      },
+      {
+      path:"/mygroups",
+      Component:Mygroups
+     },
+     {
+        path:"/newgroup",
+        Component:Newgroup
+     },
+     
     ]
   },
 ]);

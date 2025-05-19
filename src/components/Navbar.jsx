@@ -14,7 +14,7 @@ const Navbar = () => {
         <>
          <div className="navbar nav flex justify-between bg-base-100  shadow-sm">
   <div className="flex">
-    <a className="font-bold text-pink-700 text-sm md:text-xl">SocialSphere</a>
+    <a className="font-bold text-pink-700 text-sm md:text-xl">HobbyHub</a>
    
   </div>
     <NavLink className={({ isActive }) =>
@@ -55,11 +55,18 @@ const Navbar = () => {
   {currentUser ? "Logout" : "Login"}
 </button>
 
- 
-<NavLink className={({ isActive }) =>
+ <div className='flex gap-1 border'>
+   <NavLink className={({ isActive }) =>
                   isActive ? 'text-indigo-600 text-sm md:text-x font-bold':'text-red-600 text-sm md:text-x font-bold'
                 }
- to={'/extra'}>About us</NavLink>
+ to={'/mygroups'}>My Groups</NavLink>
+
+ <NavLink className={({ isActive }) =>
+                  isActive ? 'text-indigo-600 text-sm md:text-x font-bold':'text-red-600 text-sm md:text-x font-bold'
+                }
+ to={'/newgroup'}>Create Groups</NavLink>
+ </div>
+
  
 
 </div>
