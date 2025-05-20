@@ -64,7 +64,7 @@ const Navbar = () => {
  <NavLink className={({ isActive }) =>
                   isActive ? 'text-indigo-600 text-sm md:text-x font-bold':'text-red-600 text-sm md:text-x font-bold'
                 }
- to={'/newgroup'}>Create Groups</NavLink>
+ to={'/createGroup'}>Create Groups</NavLink>
  </div>
 
  

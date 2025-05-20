@@ -10,6 +10,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Mygroups from "../pages/Mygroups";
 import Newgroup from "../pages/Newgroup";
 import Allgroups from "../pages/Allgroups";
+import Groupdetails from "../pages/Groupdetails";
 
  
 
@@ -35,18 +36,26 @@ import Allgroups from "../pages/Allgroups";
      },
       {
       path:"/mygroups",
-      Component:Mygroups
+      Component:Mygroups, 
+      loader:()=>fetch('http://localhost:3000/groups'),
      },
      {
-        path:"/newgroup",
-        Component:Newgroup
+        path:"/createGroup",
+        Component:Newgroup,
+        
      },
      {
         path:"/groups",
          
         Component:Allgroups,
         loader:()=>fetch('http://localhost:3000/groups'),
+     },
+     {
+        path:"/group/:id",
+        Component:Groupdetails,
+       loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`)
      }
+
      
     ]
   },
