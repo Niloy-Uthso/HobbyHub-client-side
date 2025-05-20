@@ -1,11 +1,14 @@
 import React from 'react';
-import { NavLink, useLoaderData } from 'react-router';
+import { NavLink, useLoaderData, useNavigate } from 'react-router';
+import Faq from '../components/Faq';
+import Feedback from '../components/Feedback';
 
 const Home = () => {
 
     const groups=useLoaderData()
-         
-    console.log(groups)
+
+    const navigate=useNavigate()     
+    
 // groupName: "Sketch Sunday",
 //     category: "Drawing & Painting",
 //     description: "Weekly sketch challenges and tips from pros.",
@@ -56,15 +59,17 @@ const Home = () => {
 
 </div>
 
-         <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8'>
+      <div className='flex flex-col justify-between items-center gap-6 mt-12'>
+        <h1 className='text-3xl font-bold '>Explore Hobby Groups</h1>
+ <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8'>
             {
-                groups.map(group=>(
+                groups.slice(0, 6).map(group =>(
  
           <div className="card bg-base-100 w-80 md:w-96 h-[100%] shadow-sm">
   <figure>
     <img className='w-full h-full'
       src= {group.imageUrl}
-      alt="Shoes" />
+      alt="Shoes"/>
   </figure>
   <div className="card-body">
     <h2 className="card-title">
@@ -73,10 +78,10 @@ const Home = () => {
     </h2>
     <p>{group.description}</p>
     <div className="card-actions justify-end">
-      <div className="badge badge-outline">{group.startDate}</div>
-       
+      <div className="badge badge-outline">{group.startDate}</div>  
       <NavLink  className="badge badge-outline text-pink-600 hover:bg-pink-200 cursor-pointer" 
  to={`/${group._id}`}>View More!!</NavLink>
+          
     </div>
   </div>
 </div>
@@ -85,6 +90,13 @@ const Home = () => {
             }
          </div>
 
+        <button onClick={()=>navigate('/groups')} class="btn btn-soft btn-secondary">See all Groups</button>
+      </div>
+        
+        <Faq></Faq>
+
+        <Feedback></Feedback>
+           
         </div>
     );
 };

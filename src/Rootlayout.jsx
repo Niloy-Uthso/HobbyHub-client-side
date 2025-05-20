@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import { auth } from './firebase/firebase.config';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
+import Footer from './components/Footer';
  export const valueContext=createContext()
 const Rootlayout = () => {
      const [currentUser,setCurrentUser]=useState(null)
@@ -132,7 +133,7 @@ useEffect(()=>{
 <valueContext.Provider  value={context}>
             <Navbar></Navbar>
             <Outlet></Outlet>
-
+               <Footer></Footer>
 </valueContext.Provider>
 
             
