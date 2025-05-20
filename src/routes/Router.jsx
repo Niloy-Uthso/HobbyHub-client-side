@@ -9,6 +9,7 @@ import Register from "../components/Register";
 import ErrorPage from "../pages/ErrorPage";
 import Mygroups from "../pages/Mygroups";
 import Newgroup from "../pages/Newgroup";
+import Allgroups from "../pages/Allgroups";
 
  
 
@@ -20,8 +21,9 @@ import Newgroup from "../pages/Newgroup";
     children:[
 
         {
-            path:"/",
-            Component:Home
+            path:"/",  
+            Component:Home,
+            loader:()=>fetch('http://localhost:3000/groups'),
         },
          {
         path:"/login",
@@ -39,6 +41,12 @@ import Newgroup from "../pages/Newgroup";
         path:"/newgroup",
         Component:Newgroup
      },
+     {
+        path:"/groups",
+         
+        Component:Allgroups,
+        loader:()=>fetch('http://localhost:3000/groups'),
+     }
      
     ]
   },

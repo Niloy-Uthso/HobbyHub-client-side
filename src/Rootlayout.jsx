@@ -130,7 +130,7 @@ useEffect(()=>{
         <div>
 
 <valueContext.Provider  value={context}>
-<Navbar></Navbar>
+            <Navbar></Navbar>
             <Outlet></Outlet>
 
 </valueContext.Provider>
