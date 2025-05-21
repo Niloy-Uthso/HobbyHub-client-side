@@ -57,7 +57,7 @@ const handleUpdate=(e)=>{
 }
 
     return (
-        <div className="max-w-3xl mx-auto my-10 p-8 bg-white rounded-xl shadow-md">
+        <div className="max-w-3xl mx-auto  ml-2 mr-2 md:ml-0 md:mr-0 my-10 p-8 bg-white rounded-xl shadow-md">
       <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">Update your group info</h2>
       <form onSubmit={handleUpdate} className="space-y-5">
         

@@ -6,7 +6,7 @@ import { valueContext } from '../Rootlayout';
 const Feedback = () => {
     const {theme}=useContext(valueContext)
   return (
-    <div data-aos="fade-up" className={`${theme?`bg-gradient-to-br from-purple-50 to-pink-100`:`bg-gradient-to-br from-purple-800 to-pink-800`} py-12 px-6 rounded-2xl shadow-2xl max-w-6xl mx-auto my-12`}>
+    <div data-aos="fade-up" className={`${theme?`bg-gradient-to-br from-purple-50 to-pink-100`:`bg-gradient-to-br from-purple-800 to-pink-800`} py-12 px-6 rounded-2xl shadow-2xl max-w-6xl md:mx-auto ml-2 mr-2  my-12`}>
       <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-10">What Our Community Says</h1>
 
       <div className="grid md:grid-cols-2 gap-8">

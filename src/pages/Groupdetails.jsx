@@ -18,7 +18,7 @@ const Groupdetails = () => {
 
    
   return (
-    <div data-aos="fade-up" className="bg-base-200 py-10 px-6 rounded-xl shadow-lg max-w-4xl mx-auto my-12">
+    <div data-aos="fade-up" className="bg-base-200 py-10 px-6 rounded-xl shadow-lg max-w-4xl mx-auto my-12 ml-2 mr-2 md:ml-0 md:mr-0">
       <div className="card w-full bg-white shadow-xl">
         <figure className="max-h-[400px] overflow-hidden">
           <img src={group.imageUrl} alt={group.groupName} className="w-full object-cover" />

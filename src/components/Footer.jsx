@@ -15,10 +15,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="/" className="hover:text-yellow-300 transition">Home</a></li>
+            <li><a   className="hover:text-yellow-300 transition">Home</a></li>
             <li><a href="/groups" className="hover:text-yellow-300 transition">Explore Groups</a></li>
-            <li><a href="/about" className="hover:text-yellow-300 transition">About Us</a></li>
-            <li><a href="/faq" className="hover:text-yellow-300 transition">FAQs</a></li>
+            <li><a   className="hover:text-yellow-300 transition">About Us</a></li>
+            <li><a   className="hover:text-yellow-300 transition">FAQs</a></li>
           </ul>
         </div>
 
@@ -30,7 +30,7 @@ const Footer = () => {
               <Mail size={16} /> support@hobbyhub.com
             </li>
             <li className="flex items-center gap-2">
-              <MapPin size={16} /> New Delhi, India
+              <MapPin size={16} /> Kampala, Uganda
             </li>
           </ul>
         </div>
@@ -39,9 +39,9 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-yellow-300"><Facebook /></a>
-            <a href="#" className="hover:text-yellow-300"><Instagram /></a>
-            <a href="#" className="hover:text-yellow-300"><Twitter /></a>
+            <a href="https://www.facebook.com/nilnineteenforty.oynineteenfortysix?locale=fr_FR" className="hover:text-yellow-300"><Facebook /></a>
+            <a href="https://www.instagram.com/" className="hover:text-yellow-300"><Instagram /></a>
+            <a href="https://x.com/" className="hover:text-yellow-300"><Twitter /></a>
           </div>
         </div>
       </div>

@@ -82,7 +82,7 @@ const Newgroup = () => {
           <label className="block mb-1 font-medium">Hobby Category</label>
           <select name="category" required className="select select-bordered w-full">
             <option value="">Select a category</option>
-            <option>Drawing & Painting</option>
+            <option>Painting</option>
             <option>Photography</option>
             <option>Video Gaming</option>
             <option>Fishing</option>
