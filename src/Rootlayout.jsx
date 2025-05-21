@@ -8,12 +8,27 @@ import Footer from './components/Footer';
  export const valueContext=createContext()
 const Rootlayout = () => {
      const [currentUser,setCurrentUser]=useState(null)
-    
+ 
+     const [theme, setTheme] = useState(() => {
+  const savedTheme = localStorage.getItem('theme');
+  return savedTheme ? JSON.parse(savedTheme) : true; 
+   });
+
+   useEffect(() => {
+  localStorage.setItem('theme', JSON.stringify(theme));
+       }, [theme]);
+
+
+        const handleTheme=()=>{
+          setTheme(prev => !prev);
+      }
+
     const [loading,setLoading]=useState(true)
      
     const forceSetCurrentUser = (user) => {
         setCurrentUser({ ...user });
       };
+     
      
 
     const handlelogin=(email,password)=>{
@@ -90,7 +105,8 @@ const context={
     handlelogout,
     forceSetCurrentUser,
     handleForgetpassword,
-    handlegooglelogin
+    handlegooglelogin,
+    theme
     
 }
 // useEffect(() => {
@@ -108,7 +124,7 @@ useEffect(()=>{
               
             setCurrentUser(user)
             setLoading(false)
-            
+              
             if (user) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/auth.user
@@ -128,8 +144,8 @@ useEffect(()=>{
 },[]);
 
     return (
-        <div>
-
+        <div  className={`border relative ${theme?`bg-white`:`bg-black`}`}>
+               <p onClick={()=>handleTheme()} className='absolute  z-50 top-4 right-132'>djknfv</p>
 <valueContext.Provider  value={context}>
             <Navbar></Navbar>
              <Toaster  position="top-right"></Toaster>

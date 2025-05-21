@@ -6,13 +6,13 @@ const Navbar = () => {
     const navigate=useNavigate()
     const {pathname}=useLocation()
 
-    const {handlelogout,currentUser}=useContext(valueContext)
+    const {handlelogout,currentUser,theme}=useContext(valueContext)
      
     
      
     return (
         <>
-         <div className="navbar nav flex justify-between bg-base-100  shadow-sm">
+         <div className={`navbar nav flex justify-between ${theme?`bg-base-100`:`bg-slate-800`}  shadow-sm`}>
   <div className="flex">
     <a className="font-bold text-pink-700 text-sm md:text-xl">HobbyHub</a>
    
@@ -30,7 +30,7 @@ const Navbar = () => {
    
      <div className=" flex gap-1 md:gap-6 items-center ">
         {
-            currentUser?<p>{currentUser.displayName}</p>:''
+            currentUser?<p className={`${theme?`text-black`:`text-red-800  font-semibold`}`}>{currentUser.displayName}</p>:''
         }
     {
         currentUser?<div  tabIndex={0} role="button"  className="btn btn-ghost  btn-circle avatar tooltip tooltip-right"
