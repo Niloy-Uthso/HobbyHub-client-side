@@ -27,14 +27,14 @@ const Login = () => {
                  // Signed up 
                  const user = userCredential.user;
                  toast.success('Loged in Successfully!');
-                  navigate(f)
+                f?navigate(f):navigate('/')
 
                  // ...
                })
                .catch((error) => {
                  // const errorCode = error.code;
                  // const errorMessage = error.message;
-                 toast.error('Incorrect password');
+                 toast.error('Incorrect credential');
                  // ..
                });
       

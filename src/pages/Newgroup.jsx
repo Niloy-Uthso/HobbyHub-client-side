@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { valueContext } from '../Rootlayout';
 import { Navigate, useLocation } from 'react-router';
+import Swal from 'sweetalert2';
 
 const Newgroup = () => {
      const {currentUser,loading}=useContext(valueContext)
@@ -42,7 +43,15 @@ const Newgroup = () => {
         })
         .then(res=>res.json())
         .then(data =>{
+            Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your new group has been created",
+  showConfirmButton: false,
+  timer: 1500
+});
             console.log('after adding',data)
+            form.reset()
         })
     }
     return (

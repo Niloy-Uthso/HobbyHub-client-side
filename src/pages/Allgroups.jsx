@@ -1,9 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { NavLink, useLoaderData, useLocation } from 'react-router';
 import Eachgroup from '../components/Eachgroup';
 
 const Allgroups = () => {
      const groups=useLoaderData()
+    //  const location=useLocation()
+     
     return (
        <div className='flex events flex-col p-4 pt-8 items-center  gap-10'>
             <h1 className='text-4xl font-bold'>All groups</h1>
@@ -14,6 +16,10 @@ const Allgroups = () => {
                     ))
                 }
             </div>
+            <NavLink to={'/'}>
+                      <button class="btn btn-dash btn-accent">Back to Home</button>
+            </NavLink>
+            
         </div>
     );
 };

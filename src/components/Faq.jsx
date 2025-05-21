@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Typewriter } from 'react-simple-typewriter';
 
 const faqs = [
   {
@@ -32,7 +33,22 @@ const Faq = () => {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-12 bg-gradient-to-br from-pink-50 to-purple-100 rounded-2xl shadow-xl mt-10">
-      <h2 className="text-4xl font-extrabold text-center text-purple-700 mb-10">Frequently Asked Questions</h2>
+
+     
+
+      <h2 className="text-4xl font-extrabold text-center text-purple-700 mb-10">
+        
+        <Typewriter
+                words={['Frequently Asked Questions']}
+                loop={100}
+                cursor
+                cursorStyle="|"
+                typeSpeed={100}
+                deleteSpeed={100}
+                delaySpeed={1000}
+              />
+        
+       </h2>
       <div className="space-y-5">
         {faqs.map((faq, index) => (
           <div

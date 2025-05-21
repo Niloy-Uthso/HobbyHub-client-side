@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { valueContext } from '../Rootlayout';
-import { Link, Navigate, useLoaderData, useLocation } from 'react-router';
+import { Link, Navigate, NavLink, useLoaderData, useLocation } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Mygroups = () => {
@@ -83,11 +83,11 @@ const Mygroups = () => {
                 <td>
                   <div className="flex gap-2 justify-center">
 
-                    <Link to={`/group/${group._id}`}>
+                    <Link state={{from:location.pathname}} to={`/group/${group._id}`}>
                     <button class="btn btn-outline btn-info btn-sm">Detail</button>
                     </Link>
                     
-                    <Link to={`/mygroups/updateGroup/${group._id}`}> <button className="btn btn-sm btn-outline btn-primary">Update</button></Link>
+                    <Link  to={`/mygroups/updateGroup/${group._id}`}> <button className="btn btn-sm btn-outline btn-primary">Update</button></Link>
                    
                     <button onClick={()=>handleDelete(group._id)} className="btn btn-sm btn-outline btn-error">Delete</button>
                   </div>
@@ -102,6 +102,7 @@ const Mygroups = () => {
           </tbody>
         </table>
       </div>
+       <NavLink to={'/'}> <button  class="btn btn-outline block mx-auto mt-4 btn-accent">Go Home</button></NavLink>
     </div>
   );
 };

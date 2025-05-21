@@ -1,7 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
 
 const Eachgroup = ({group}) => {
+    
     return (
          <div>
             <div className="card bg-base-100 w-80 md:w-96 h-[100%] shadow-sm">
@@ -19,7 +20,7 @@ const Eachgroup = ({group}) => {
     <div className="card-actions justify-end">
       <div className="badge badge-outline">{group.startDate}</div>
        
-      <NavLink  className="badge badge-outline text-pink-600 hover:bg-pink-200 cursor-pointer" 
+      <NavLink state={{from:location.pathname}} className="badge badge-outline text-pink-600 hover:bg-pink-200 cursor-pointer" 
  to={`/group/${group._id}`}>Show More!!</NavLink>
     </div>
   </div>

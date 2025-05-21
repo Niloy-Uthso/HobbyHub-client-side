@@ -1,14 +1,16 @@
 import React from 'react';
-import { NavLink, useLoaderData, useNavigate } from 'react-router';
+import { NavLink, useLoaderData, useLocation, useNavigate } from 'react-router';
 import Faq from '../components/Faq';
 import Feedback from '../components/Feedback';
+import { Typewriter } from 'react-simple-typewriter';
+import { Fade } from 'react-awesome-reveal';
 
 const Home = () => {
 
     const groups=useLoaderData()
 
     const navigate=useNavigate()     
-    
+      const location=useLocation()
 // groupName: "Sketch Sunday",
 //     category: "Drawing & Painting",
 //     description: "Weekly sketch challenges and tips from pros.",
@@ -17,8 +19,22 @@ const Home = () => {
 //     startDate: "2025-06-09",
 //     imageUrl: "https://example.com/images/sketch.jpg"
     return (
-        <div>
-              <div className="carousel h-[70vh] w-full">
+        <div className='relative'>
+            <div className="absolute z-10 top-6 left-6 bg-white/70 px-4 py-2 rounded-md shadow-md">
+    <h1 className="text-2xl font-bold text-indigo-800">
+      <Typewriter
+        words={['Welcome to HobbyHub! Join Your Passion Group! Find Like-Minded Friends!']}
+        loop={100}
+        cursor
+        cursorStyle="|"
+        typeSpeed={70}
+        deleteSpeed={50}
+        delaySpeed={1000}
+      />
+    </h1>
+  </div>
+              <div className="carousel relative h-[70vh] w-full">
+               
   <div id="slide1" className="carousel-item relative w-full">
     <img
       src="https://i.ibb.co/rKWMxZty/blog-a560-1.webp"
@@ -58,13 +74,19 @@ const Home = () => {
 
 
 </div>
-
+ 
       <div className='flex flex-col justify-between items-center gap-6 mt-12'>
-        <h1 className='text-3xl font-bold '>Explore Hobby Groups</h1>
+
+
+         <Fade direction="up" triggerOnce>
+        <h2 className="text-3xl font-bold text-indigo-600">Explore Hobby Groups</h2>
+         {/* <h1 className='text-3xl font-bold '> Explore Hobby Groups</h1> */}
+      </Fade>
+       
  <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8'>
             {
                 groups.slice(0, 6).map(group =>(
- 
+              <Fade direction="up" triggerOnce>
           <div className="card bg-base-100 w-80 md:w-96 h-[100%] shadow-sm">
   <figure>
     <img className='w-full h-full'
@@ -79,18 +101,19 @@ const Home = () => {
     <p>{group.description}</p>
     <div className="card-actions justify-end">
       <div className="badge badge-outline">{group.startDate}</div>  
-      <NavLink  className="badge badge-outline text-pink-600 hover:bg-pink-200 cursor-pointer" 
+      <NavLink state={{from:location.pathname}} className="badge badge-outline text-pink-600 hover:bg-pink-200 cursor-pointer" 
  to={`/group/${group._id}`}>See More!!</NavLink>
           
     </div>
   </div>
 </div>
+</Fade>
 
                 ))
             }
          </div>
 
-        <button onClick={()=>navigate('/groups')} class="btn btn-soft btn-secondary">See all Groups</button>
+        <button  onClick={()=>navigate('/groups')} class="btn btn-soft btn-secondary">See all Groups</button>
       </div>
         
         <Faq></Faq>

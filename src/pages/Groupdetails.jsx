@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { Navigate, useLoaderData, useLocation, useParams } from 'react-router';
+import { Navigate, NavLink, useLoaderData, useLocation, useParams } from 'react-router';
 import { valueContext } from '../Rootlayout';
 
 const Groupdetails = () => {
   const { currentUser, loading } = useContext(valueContext);
   const group = useLoaderData();
   const location=useLocation()
-  console.log(group)
+   
+     const f= location?.state?.from
+    // console.log(group)
 
   if (loading) return <p className="text-center text-lg mt-10">Loading...</p>;
 
@@ -35,6 +37,9 @@ const Groupdetails = () => {
           </div>
         </div>
       </div>
+
+
+     <NavLink to={f}> <button  class="btn btn-outline block mx-auto mt-4 btn-accent">Go Back</button></NavLink>
     </div>
   );
 };

@@ -45,12 +45,12 @@ if (!regex.test(password)) {
             displayName: displayName,
             photoURL:photoURL
           }).then(() => {
-            console.log("Profile updated");
+            
             forceSetCurrentUser(auth.currentUser);
             // Optionally navigate to another page
             // navigate('/somewhere')
           }).catch((error) => {
-            console.error("Profile update failed:", error);
+             
           });
         // ...
         navigate('/')

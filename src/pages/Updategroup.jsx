@@ -32,11 +32,22 @@ const handleUpdate=(e)=>{
         })
         .then(res=>res.json())
         .then(data=>{
+            console.log(data)
              if(data.modifiedCount){
                 Swal.fire({
   position: "top-end",
   icon: "success",
   title: "Updated",
+  showConfirmButton: false,
+  timer: 1500
+});
+             }
+             else{
+                Swal.fire({
+  position: "top-end",
+  icon: "error", 
+  title: "Oops!",
+  text: "You have not changed anything",
   showConfirmButton: false,
   timer: 1500
 });

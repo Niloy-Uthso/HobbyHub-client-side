@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageSquareQuote } from 'lucide-react';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Feedback = () => {
   return (
@@ -27,7 +28,18 @@ const Feedback = () => {
         ].map((feedback, idx) => (
           <div key={idx} className="bg-white p-6 rounded-xl shadow-md relative border-l-4 border-pink-400 hover:shadow-lg transition">
             <MessageSquareQuote className="absolute -top-5 left-4 text-pink-400 bg-white rounded-full p-1" size={32} />
-            <p className="text-gray-800 italic mb-3">“{feedback.quote}”</p>
+            <p className="text-gray-800 italic mb-3">
+                 <Typewriter
+                                words={[`“${feedback.quote}”`]}
+                                loop={100}
+                                cursor
+                                cursorStyle="|"
+                                typeSpeed={100}
+                                deleteSpeed={100}
+                                delaySpeed={1000}
+                              />
+                
+                </p>
             <p className="text-sm font-semibold text-pink-600">— {feedback.name}</p>
           </div>
         ))}

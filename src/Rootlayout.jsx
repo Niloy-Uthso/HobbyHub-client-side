@@ -3,7 +3,7 @@ import { Outlet } from 'react-router';
 import Navbar from './components/Navbar';
 import { auth } from './firebase/firebase.config';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import Footer from './components/Footer';
  export const valueContext=createContext()
 const Rootlayout = () => {
@@ -132,6 +132,7 @@ useEffect(()=>{
 
 <valueContext.Provider  value={context}>
             <Navbar></Navbar>
+             <Toaster  position="top-right"></Toaster>
             <Outlet></Outlet>
                <Footer></Footer>
 </valueContext.Provider>
