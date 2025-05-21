@@ -25,7 +25,7 @@ import Updategroup from "../pages/Updategroup";
         {
             path:"/",  
             Component:Home,
-            loader:()=>fetch('http://localhost:3000/groups'),
+            loader:()=>fetch(' https://hobbyhub-server-nine.vercel.app/groups'),
         },
          {
         path:"/login",
@@ -38,7 +38,7 @@ import Updategroup from "../pages/Updategroup";
       {
       path:"/mygroups",
       Component:Mygroups, 
-      loader:()=>fetch('http://localhost:3000/groups'),
+      loader:()=>fetch(' https://hobbyhub-server-nine.vercel.app/groups'),
      },
      {
         path:"/createGroup",
@@ -49,17 +49,17 @@ import Updategroup from "../pages/Updategroup";
         path:"/groups",
          
         Component:Allgroups,
-        loader:()=>fetch('http://localhost:3000/groups'),
+        loader:()=>fetch(' https://hobbyhub-server-nine.vercel.app/groups'),
      },
      {
         path:"/group/:id",
         Component:Groupdetails,
-       loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`)
+       loader: ({ params }) => fetch(` https://hobbyhub-server-nine.vercel.app/groups/${params.id}`)
      },
      {
         path:"/mygroups/updateGroup/:id",
         Component:Updategroup,
-         loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`)
+         loader: ({ params }) => fetch(` https://hobbyhub-server-nine.vercel.app/groups/${params.id}`)
 
      }
 

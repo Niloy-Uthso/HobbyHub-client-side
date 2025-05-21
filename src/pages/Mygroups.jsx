@@ -28,7 +28,7 @@ const Mygroups = () => {
 }).then((result) => {
   if (result.isConfirmed) {
 
-    fetch(`http://localhost:3000/groups/${id}`,{
+    fetch(` https://hobbyhub-server-nine.vercel.app/groups/${id}`,{
         method:'DELETE'
     })
     .then(res=>res.json())

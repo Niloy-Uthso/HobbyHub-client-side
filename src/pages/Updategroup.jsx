@@ -22,7 +22,7 @@ const handleUpdate=(e)=>{
         const formData=new FormData(form)
         const updatedgroup=Object.fromEntries(formData.entries())
          
-        fetch(`http://localhost:3000/mygroups/updateGroup/${group._id}`,{
+        fetch(` https://hobbyhub-server-nine.vercel.app/mygroups/updateGroup/${group._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

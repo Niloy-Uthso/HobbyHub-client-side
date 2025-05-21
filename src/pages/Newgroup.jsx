@@ -22,7 +22,7 @@ const Newgroup = () => {
         const hobbydata=Object.fromEntries(formData.entries())
          
 
-        // fetch('http://localhost:3000/hobbier',{
+        // fetch(' https://hobbyhub-server-nine.vercel.app/hobbier',{
         //     method:'POST',
         //     headers:{
         //         'content-type':'application/json'
@@ -34,7 +34,7 @@ const Newgroup = () => {
         //     console.log('after adding',data)
         // })
 
-        fetch('http://localhost:3000/groups',{
+        fetch(' https://hobbyhub-server-nine.vercel.app/groups',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
