@@ -1,18 +1,24 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
  
 import { valueContext } from '../Rootlayout';
-import { updateProfile } from 'firebase/auth';
-import { auth } from '../firebase/firebase.config';
+ 
+// import { auth } from '../firebase/firebase.config';
 import toast from 'react-hot-toast';
 // import { Helmet } from 'react-helmet-async';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../firebase/firebase.config';
 
 const Register = () => {
-    const {handleregister, forceSetCurrentUser,handlegooglelogin}=useContext(valueContext)
+    const {handleregister,handlegooglelogin,forceSetCurrentUser}=useContext(valueContext)
     const [showPassword, setShowPassword] = useState(false);
     const navigate=useNavigate()
      
+    
+    const location=useLocation()
+    //  const f= location.state.from
+     console.log(location)
     
     const handleRegister=(e)=>{
         e.preventDefault()
@@ -35,8 +41,7 @@ if (!regex.test(password)) {
         const user = userCredential.user;
         // console.log(user)
         toast.success('Registered Successfully!');
-        // ...
-        updateProfile(user, {
+          updateProfile(user, {
             displayName: displayName,
             photoURL:photoURL
           }).then(() => {
@@ -47,6 +52,8 @@ if (!regex.test(password)) {
           }).catch((error) => {
             console.error("Profile update failed:", error);
           });
+        // ...
+        navigate('/')
            
       })
       .catch((error) => {

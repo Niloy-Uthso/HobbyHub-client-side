@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { valueContext } from '../Rootlayout';
+import { Navigate, useLocation } from 'react-router';
 
 const Newgroup = () => {
      const {currentUser,loading}=useContext(valueContext)
+     const location=useLocation()
       if(loading)
         return <p>Loading,,,,,</p>
     if(!currentUser||!currentUser.email){
         
-        return <Navigate  to={'/login'}></Navigate>
+        return <Navigate state={{from:location.pathname}}  to={'/login'}></Navigate>
         
     }
 
@@ -17,7 +19,7 @@ const Newgroup = () => {
         const form =e.target;
         const formData=new FormData(form)
         const hobbydata=Object.fromEntries(formData.entries())
-        console.log(hobbydata)
+         
 
         // fetch('http://localhost:3000/hobbier',{
         //     method:'POST',

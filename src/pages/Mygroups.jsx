@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { valueContext } from '../Rootlayout';
-import { Link, Navigate, useLoaderData } from 'react-router';
+import { Link, Navigate, useLoaderData, useLocation } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Mygroups = () => {
   const { currentUser, loading } = useContext(valueContext);
   const groups = useLoaderData();
-
+    const[primaryGroups,setPrimaryGroups]=useState(groups)
+    const location=useLocation()
+   
   if (loading) return <p className='text-center mt-10 text-lg'>Loading...</p>;
 
   if (!currentUser || !currentUser.email) {
-    return <Navigate to={'/login'} />;
+    return <Navigate state={{from:location.pathname}} to={'/login'} />;
   }
 
   const handleDelete=(id)=>{
@@ -37,6 +39,9 @@ const Mygroups = () => {
       text: "Your group has been deleted.",
       icon: "success"
     });
+
+          const remaining=groups.filter(gr=>gr._id!==id)
+          setPrimaryGroups(remaining)
        }
     })
 
@@ -45,7 +50,7 @@ const Mygroups = () => {
 });
   }
 
-  const myGroups = groups.filter(group => group.userEmail === currentUser.email);
+  const myGroups = primaryGroups.filter(group => group.userEmail === currentUser.email);
 
   return (
     <div className='max-w-6xl mx-auto p-6'>
@@ -82,7 +87,8 @@ const Mygroups = () => {
                     <button class="btn btn-outline btn-info btn-sm">Detail</button>
                     </Link>
                     
-                    <button className="btn btn-sm btn-outline btn-primary">Update</button>
+                    <Link to={`/mygroups/updateGroup/${group._id}`}> <button className="btn btn-sm btn-outline btn-primary">Update</button></Link>
+                   
                     <button onClick={()=>handleDelete(group._id)} className="btn btn-sm btn-outline btn-error">Delete</button>
                   </div>
                 </td>

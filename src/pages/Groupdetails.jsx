@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
-import { Navigate, useLoaderData, useParams } from 'react-router';
+import { Navigate, useLoaderData, useLocation, useParams } from 'react-router';
 import { valueContext } from '../Rootlayout';
 
 const Groupdetails = () => {
   const { currentUser, loading } = useContext(valueContext);
   const group = useLoaderData();
+  const location=useLocation()
   console.log(group)
 
   if (loading) return <p className="text-center text-lg mt-10">Loading...</p>;
 
   if (!currentUser?.email) {
-    return <Navigate to="/login" />;
+    return <Navigate state={{from:location.pathname}} to="/login" />;
   }
 
    

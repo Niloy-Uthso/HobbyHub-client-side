@@ -1,5 +1,5 @@
 
-import {  useNavigate } from 'react-router';
+import {  useLocation, useNavigate } from 'react-router';
  
 import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -12,7 +12,8 @@ const Login = () => {
     const[userEmail,setUserEmail]=useState("")
 
     const navigate=useNavigate()
-    // const location=useLocation()
+    const location=useLocation()
+     const f= location?.state?.from
     // const from =location.state.from
     //  console.log(from)
 
@@ -26,7 +27,8 @@ const Login = () => {
                  // Signed up 
                  const user = userCredential.user;
                  toast.success('Loged in Successfully!');
-                //  navigate(from?from:'/')
+                  navigate(f)
+
                  // ...
                })
                .catch((error) => {

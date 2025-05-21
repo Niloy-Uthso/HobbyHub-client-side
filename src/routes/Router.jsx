@@ -11,6 +11,7 @@ import Mygroups from "../pages/Mygroups";
 import Newgroup from "../pages/Newgroup";
 import Allgroups from "../pages/Allgroups";
 import Groupdetails from "../pages/Groupdetails";
+import Updategroup from "../pages/Updategroup";
 
  
 
@@ -54,6 +55,12 @@ import Groupdetails from "../pages/Groupdetails";
         path:"/group/:id",
         Component:Groupdetails,
        loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`)
+     },
+     {
+        path:"/mygroups/updateGroup/:id",
+        Component:Updategroup,
+         loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`)
+
      }
 
      

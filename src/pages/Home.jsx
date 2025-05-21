@@ -80,7 +80,7 @@ const Home = () => {
     <div className="card-actions justify-end">
       <div className="badge badge-outline">{group.startDate}</div>  
       <NavLink  className="badge badge-outline text-pink-600 hover:bg-pink-200 cursor-pointer" 
- to={`/${group._id}`}>View More!!</NavLink>
+ to={`/group/${group._id}`}>See More!!</NavLink>
           
     </div>
   </div>
