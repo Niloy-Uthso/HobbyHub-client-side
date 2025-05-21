@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { MessageSquareQuote } from 'lucide-react';
 import { Typewriter } from 'react-simple-typewriter';
+import { valueContext } from '../Rootlayout';
 
 const Feedback = () => {
+    const {theme}=useContext(valueContext)
   return (
-    <div data-aos="fade-up" className="bg-gradient-to-br from-purple-50 to-pink-100 py-12 px-6 rounded-2xl shadow-2xl max-w-6xl mx-auto my-12">
+    <div data-aos="fade-up" className={`${theme?`bg-gradient-to-br from-purple-50 to-pink-100`:`bg-gradient-to-br from-purple-800 to-pink-800`} py-12 px-6 rounded-2xl shadow-2xl max-w-6xl mx-auto my-12`}>
       <h1 className="text-4xl font-extrabold text-center text-purple-700 mb-10">What Our Community Says</h1>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -28,7 +30,7 @@ const Feedback = () => {
         ].map((feedback, idx) => (
           <div key={idx} className="bg-white p-6 rounded-xl shadow-md relative border-l-4 border-pink-400 hover:shadow-lg transition">
             <MessageSquareQuote className="absolute -top-5 left-4 text-pink-400 bg-white rounded-full p-1" size={32} />
-            <p className="text-gray-800 italic mb-3">
+            <p className="text-gray-800 min-h-[96px] italic mb-3">
                  <Typewriter
                                 words={[`“${feedback.quote}”`]}
                                 loop={100}

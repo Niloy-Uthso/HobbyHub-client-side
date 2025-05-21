@@ -12,13 +12,13 @@ const Navbar = () => {
      
     return (
         <>
-         <div className={`navbar nav flex justify-between ${theme?`bg-base-100`:`bg-slate-800`}  shadow-sm`}>
+         <div className={`navbar nav flex justify-between ${theme?`bg-blue-950`:`bg-slate-800`}  shadow-sm`}>
   <div className="flex">
-    <a className="font-bold text-pink-700 text-sm md:text-xl">HobbyHub</a>
+    <a className="font-bold text-pink-700 text-sm  md:text-2xl">ℌ𝔬𝔟𝔟𝔶ℌ𝔲𝔟</a>
    
   </div>
     <NavLink className={({ isActive }) =>
-                  isActive ? 'text-indigo-600  text-[10px] md:text-xl font-bold' : 'font-bold  text-[10px] md:text-xl'
+                  isActive ? 'text-[#D4AF37]  text-[10px] md:text-xl font-bold' : 'font-bold text-[#F8F8FF]  text-[10px] md:text-xl'
                 }
  to={'/'}>Home</NavLink>
 
@@ -55,9 +55,9 @@ const Navbar = () => {
   {currentUser ? "Logout" : "Login"}
 </button>
 
- <div className='flex gap-1 border'>
+ <div className='flex gap-1  justify-between w-56'>
    <NavLink className={({ isActive }) =>
-                  isActive ? 'text-indigo-600 text-sm md:text-x font-bold':'text-red-600 text-sm md:text-x font-bold'
+                  isActive ? 'text-indigo-600 text-sm md:text-x font-bold':'text-[#EFE1C6] text-sm md:text-x font-bold'
                 }
  to={'/mygroups'}>My Groups</NavLink>
 

@@ -37,7 +37,7 @@ const Faq = () => {
 
      
 
-      <h2 className="text-4xl font-extrabold text-center text-purple-700 mb-10">
+      <h2 className={`text-4xl font-extrabold text-center ${theme?`text-purple-700`:`text-green-700`}  mb-10`}>
         
         <Typewriter
                 words={['Frequently Asked Questions']}

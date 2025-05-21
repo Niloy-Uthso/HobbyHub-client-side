@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, useLoaderData, useLocation, useNavigate } from 'react-router';
 import Faq from '../components/Faq';
 import Feedback from '../components/Feedback';
 import { Typewriter } from 'react-simple-typewriter';
 import { Fade } from 'react-awesome-reveal';
+import { valueContext } from '../Rootlayout';
 
 const Home = () => {
 
     const groups=useLoaderData()
-
+const {theme}=useContext(valueContext)
     const navigate=useNavigate()     
       const location=useLocation()
 // groupName: "Sketch Sunday",
@@ -87,7 +88,7 @@ const Home = () => {
             {
                 groups.slice(0, 6).map(group =>(
               <Fade direction="up" triggerOnce>
-          <div className="card bg-base-100 w-80 md:w-96 h-[100%] shadow-sm">
+          <div className={`card ${theme?`bg-base-100`:`bg-slate-800 text-gray-100`} w-80 md:w-96 h-[100%] shadow-sm`}>
   <figure>
     <img className='w-full h-full'
       src= {group.imageUrl}

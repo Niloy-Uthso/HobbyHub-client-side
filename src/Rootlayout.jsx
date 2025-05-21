@@ -5,6 +5,8 @@ import { auth } from './firebase/firebase.config';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import toast, { Toaster } from 'react-hot-toast';
 import Footer from './components/Footer';
+import { CiCloudMoon } from "react-icons/ci";
+import { FaCloudMoon } from "react-icons/fa";
  export const valueContext=createContext()
 const Rootlayout = () => {
      const [currentUser,setCurrentUser]=useState(null)
@@ -144,8 +146,8 @@ useEffect(()=>{
 },[]);
 
     return (
-        <div  className={`border relative ${theme?`bg-white`:`bg-black`}`}>
-               <p onClick={()=>handleTheme()} className='absolute  z-50 top-4 right-132'>djknfv</p>
+        <div  className={`border relative ${theme?`bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500`:`bg-black`}`}>
+               <p onClick={()=>handleTheme()} className='absolute  z-50 top-4 right-132'>{<FaCloudMoon className={`text-3xl ${theme?`text-yellow-400 hover:text-black`:`text-black hover:text-yellow-500`}  transition duration-300`} />}</p>
 <valueContext.Provider  value={context}>
             <Navbar></Navbar>
              <Toaster  position="top-right"></Toaster>
