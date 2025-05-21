@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
+import { valueContext } from '../Rootlayout';
 
 const faqs = [
   {
@@ -26,13 +27,13 @@ const faqs = [
 
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState(null);
-
+ const {theme}=useContext(valueContext)
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-12 bg-gradient-to-br from-pink-50 to-purple-100 rounded-2xl shadow-xl mt-10">
+    <section className={`max-w-5xl mx-auto px-6 py-12 ${theme?`bg-gradient-to-br from-pink-50 to-purple-100 `:`bg-gradient-to-br from-purple-800 to-pink-800`} rounded-2xl shadow-xl mt-10`}>
 
      
 
