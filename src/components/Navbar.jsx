@@ -17,7 +17,7 @@ const Navbar = () => {
     <a className="font-bold text-pink-700 text-xl md:text-3xl">ℌ𝔬𝔟𝔟𝔶ℌ𝔲𝔟</a>
   </div>
 
-  {/* Mobile Menu */}
+  
   <div className="md:hidden flex gap-2">
     <details className="dropdown dropdown-end">
       <summary className="btn btn-sm btn-ghost text-white">☰</summary>
@@ -25,6 +25,7 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/mygroups">My Groups</NavLink></li>
         <li><NavLink to="/createGroup">Create Groups</NavLink></li>
+        <li><NavLink to="/groups">All Groups</NavLink></li>
         {
           currentUser
             ? <li><button onClick={handlelogout}>Logout</button></li>
@@ -55,7 +56,7 @@ const Navbar = () => {
     }
   </div>
 
-  {/* Desktop Menu */}
+   
   <div className="hidden md:flex items-center gap-6">
     <NavLink
       to="/"
@@ -86,6 +87,15 @@ const Navbar = () => {
       }>
       Create Groups
     </NavLink>
+    <NavLink
+      to="/groups"
+      className={({ isActive }) =>
+        isActive
+          ? 'text-indigo-400 text-sm font-bold'
+          : 'text-[#EFE1C6] text-sm font-semibold'
+      }>
+      All groups
+    </NavLink>
 
     {
       !currentUser &&
@@ -101,7 +111,7 @@ const Navbar = () => {
       {currentUser ? "Logout" : "Login"}
     </button>
 
-    {/* Avatar */}
+     
     {
       currentUser && (
         <div className="flex items-center gap-2">

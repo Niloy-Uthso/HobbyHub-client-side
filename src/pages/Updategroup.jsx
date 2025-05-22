@@ -7,7 +7,13 @@ const Updategroup = () => {
     const group=useLoaderData();
      const {currentUser,loading}=useContext(valueContext)
           if(loading)
-            return <p>Loading,,,,,</p>
+            return <div className="h-screen flex justify-center items-center bg-black">
+        <FadeLoader color="#ba1676"
+  height={60}
+  radius={12}
+  speedMultiplier={0}
+  width={8} />
+      </div>
         if(!currentUser||!currentUser.email){
             
             return <Navigate  to={'/login'}></Navigate>
@@ -57,7 +63,7 @@ const handleUpdate=(e)=>{
 }
 
     return (
-        <div className="max-w-3xl mx-auto  ml-2 mr-2 md:ml-0 md:mr-0 my-10 p-8 bg-white rounded-xl shadow-md">
+        <div className="max-w-3xl md:mx-auto  ml-2 mr-2  my-10 p-8 bg-white rounded-xl shadow-md">
       <h2 className="text-3xl font-bold text-center mb-6 text-indigo-600">Update your group info</h2>
       <form onSubmit={handleUpdate} className="space-y-5">
         

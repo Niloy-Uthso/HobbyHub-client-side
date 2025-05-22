@@ -22,7 +22,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Contact */}
+         
         <div>
           <h3 className="text-xl font-semibold mb-3">Contact</h3>
           <ul className="text-sm space-y-2">
@@ -35,7 +35,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social */}
+        
         <div>
           <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-4">

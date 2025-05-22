@@ -7,7 +7,7 @@ const ErrorPage = () => {
       <h1 className="text-4xl font-bold text-red-600">Oops!</h1>
        
       
-      <p className="text-lg mt-4">Sorry, an unexpected error has occurred.</p>
+      <p className="text-lg mt-4">404,Page not found</p>
       
       <a href="/" className="btn btn-primary mt-6">Go Home</a>
     </div>

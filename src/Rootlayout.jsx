@@ -7,6 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Footer from './components/Footer';
 import { CiCloudMoon } from "react-icons/ci";
 import { FaCloudMoon } from "react-icons/fa";
+import { FadeLoader } from 'react-spinners';
  export const valueContext=createContext()
 const Rootlayout = () => {
      const [currentUser,setCurrentUser]=useState(null)
@@ -27,6 +28,10 @@ const Rootlayout = () => {
 
     const [loading,setLoading]=useState(true)
      
+    
+  
+ 
+
     const forceSetCurrentUser = (user) => {
         setCurrentUser({ ...user });
       };
@@ -118,13 +123,15 @@ const context={
 //     });
 //   }, []);
 //   console.log()
+
 useEffect(()=>{
-    
+     
     
      const unsubscribe=   onAuthStateChanged(auth, (user) => {
           
               
             setCurrentUser(user)
+            
             setLoading(false)
               
             if (user) {
@@ -144,13 +151,26 @@ useEffect(()=>{
           }
     
 },[]);
+     
+if (loading) {
+    return (
+      <div className="h-screen flex justify-center items-center bg-black">
+        <FadeLoader color="#ba1676"
+  height={60}
+  radius={12}
+  speedMultiplier={0}
+  width={8} />
+      </div>
+    );
+  }
 
     return (
-        <div  className={`border relative ${theme?`bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500`:`bg-black`}`}>
-               <p onClick={()=>handleTheme()} className='absolute  z-50 top-4 right-56 md:right-132'>{<FaCloudMoon className={`text-3xl ${theme?`text-yellow-400 hover:text-black`:`text-black hover:text-yellow-500`}  transition duration-300`} />}</p>
+        <div  className={`pacifico-regular relative ${theme?`bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500`:`bg-black`}`}>
+               <p onClick={()=>handleTheme()} className='absolute  z-50 top-4 right-56 md:right-138'>{<FaCloudMoon className={`text-3xl ${theme?`text-yellow-400 hover:text-black`:`text-black hover:text-yellow-500`}  transition duration-300`} />}</p>
 <valueContext.Provider  value={context}>
             <Navbar></Navbar>
-             <Toaster  position="top-right"></Toaster>
+              <Toaster position="top-right" reverseOrder={false} />
+              
             <Outlet></Outlet>
                <Footer></Footer>
 </valueContext.Provider>

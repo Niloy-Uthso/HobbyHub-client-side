@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { valueContext } from '../Rootlayout';
 import { Link, Navigate, NavLink, useLoaderData, useLocation } from 'react-router';
 import Swal from 'sweetalert2';
+import { FadeLoader } from 'react-spinners';
 
 const Mygroups = () => {
   const { currentUser, loading } = useContext(valueContext);
@@ -9,7 +10,14 @@ const Mygroups = () => {
     const[primaryGroups,setPrimaryGroups]=useState(groups)
     const location=useLocation()
    
-  if (loading) return <p className='text-center mt-10 text-lg'>Loading...</p>;
+  if (loading) 
+    return  <div className="h-screen flex justify-center items-center bg-black">
+        <FadeLoader color="#ba1676"
+  height={60}
+  radius={12}
+  speedMultiplier={0}
+  width={8} />
+      </div>
 
   if (!currentUser || !currentUser.email) {
     return <Navigate state={{from:location.pathname}} to={'/login'} />;

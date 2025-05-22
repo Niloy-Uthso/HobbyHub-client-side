@@ -11,7 +11,13 @@ const Groupdetails = () => {
      const f= location?.state?.from
     // console.log(group)
 
-  if (loading) return <p className="text-center text-lg mt-10">Loading...</p>;
+  if (loading) return<div className="h-screen flex justify-center items-center bg-black">
+        <FadeLoader color="#ba1676"
+  height={60}
+  radius={12}
+  speedMultiplier={0}
+  width={8} />
+      </div>
 
   if (!currentUser?.email) {
     return <Navigate state={{from:location.pathname}} to="/login" />;
@@ -21,7 +27,7 @@ const Groupdetails = () => {
     Swal.fire({
   position: "top-end",
   icon: "success",
-  title: "Your work has been saved",
+  title: "Your have joined the group",
   showConfirmButton: false,
   timer: 1500
 });

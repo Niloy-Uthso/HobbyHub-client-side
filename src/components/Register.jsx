@@ -3,9 +3,9 @@ import { useLocation, useNavigate } from 'react-router';
  
 import { valueContext } from '../Rootlayout';
  
-// import { auth } from '../firebase/firebase.config';
+ 
 import toast from 'react-hot-toast';
-// import { Helmet } from 'react-helmet-async';
+
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
@@ -17,7 +17,7 @@ const Register = () => {
      
     
     const location=useLocation()
-    //  const f= location.state.from
+    
      console.log(location)
     
     const handleRegister=(e)=>{
@@ -31,13 +31,14 @@ const Register = () => {
        const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         
 if (!regex.test(password)) {
-  alert("Password must be at least 6 characters and contain both uppercase and lowercase letters.");
+    toast.error('Password must be at least 6 characters and contain both uppercase and lowercase letters.');
+ 
   return;
 }
        
        handleregister(email,password,photoURL)
        .then((userCredential) => {
-        // Signed up 
+          
         const user = userCredential.user;
         // console.log(user)
         toast.success('Registered Successfully!');
@@ -47,8 +48,7 @@ if (!regex.test(password)) {
           }).then(() => {
             
             forceSetCurrentUser(auth.currentUser);
-            // Optionally navigate to another page
-            // navigate('/somewhere')
+             
           }).catch((error) => {
              
           });
@@ -66,9 +66,9 @@ if (!regex.test(password)) {
     }
     return (
         <>
-          {/* <Helmet> */}
-                <title>Register | SocialSphere</title>
-              {/* </Helmet> */}
+           
+                <title>Register | HobbyHub</title>
+               
          <form onSubmit={handleRegister} class=" bg-base-200 border-base-300 mx-auto mt-24 rounded-box w-xs border p-4">
        
 

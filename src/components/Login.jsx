@@ -43,9 +43,9 @@ const Login = () => {
 
        <>
         <form onSubmit={handleLogin} class=" bg-base-200 border-base-300 mx-auto mt-24 rounded-box w-xs border p-4">
-    {/* <Helmet> */}
-                   <title>Login | SocialSphere</title>
-                 {/* </Helmet> */}
+    
+                   <title>Login | HobbyHub</title>
+                 
 
   <label class="label">Email</label>
   <input type="email" onChange={(e)=>setUserEmail(e.target.value)}  class="input" name='email' placeholder="Email" />
