@@ -1,6 +1,6 @@
  # 🎯 HobbyHub
 
-Live Site 👉 [https://loquacious-bublanina-4e27a4.netlify.app](https://loquacious-bublanina-4e27a4.netlify.app)
+Live Site 👉 [https://loquacious-bublanina-4e27a4.netlify.app/](https://loquacious-bublanina-4e27a4.netlify.app/)
 
 ---
 
