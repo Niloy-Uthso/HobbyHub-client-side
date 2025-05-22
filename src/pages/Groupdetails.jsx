@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate, NavLink, useLoaderData, useLocation, useParams } from 'react-router';
 import { valueContext } from '../Rootlayout';
+import Swal from 'sweetalert2';
 
 const Groupdetails = () => {
   const { currentUser, loading } = useContext(valueContext);
@@ -15,7 +16,16 @@ const Groupdetails = () => {
   if (!currentUser?.email) {
     return <Navigate state={{from:location.pathname}} to="/login" />;
   }
-
+      
+  const handleJoin=()=>{
+    Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
+  }
    
   return (
     <div data-aos="fade-up" className="bg-base-200 py-10 px-6 rounded-xl shadow-lg max-w-4xl md:mx-auto my-12 ml-2 mr-2 ">
@@ -35,6 +45,15 @@ const Groupdetails = () => {
             <p><span className="font-semibold text-indigo-600">Meeting Location:</span> {group.meetingLocation}</p>
             <p><span className="font-semibold text-indigo-600">Created by:</span> {group.userName} ({group.userEmail})</p>
           </div>
+         {new Date(group.startDate) > new Date() ? (
+  <button onClick={()=>handleJoin()} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
+    Join Group
+  </button>
+) : (
+  <span className="text-red-600 font-semibold">
+    Group is no longer active
+  </span>
+)}
         </div>
       </div>
 
