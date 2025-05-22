@@ -166,7 +166,7 @@ if (loading) {
 
     return (
         <div  className={`pacifico-regular relative ${theme?`bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500`:`bg-black`}`}>
-               <p onClick={()=>handleTheme()} className='absolute  z-50 top-4 right-56 md:right-138'>{<FaCloudMoon className={`text-3xl ${theme?`text-yellow-400 hover:text-black`:`text-black hover:text-yellow-500`}  transition duration-300`} />}</p>
+               <p onClick={()=>handleTheme()} className='absolute  z-50 top-4 right-56 md:left-100'>{<FaCloudMoon className={`text-3xl ${theme?`text-yellow-400 hover:text-black`:`text-black hover:text-yellow-500`}  transition duration-300`} />}</p>
 <valueContext.Provider  value={context}>
             <Navbar></Navbar>
               <Toaster position="top-right" reverseOrder={false} />
