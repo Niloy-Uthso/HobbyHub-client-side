@@ -5,6 +5,7 @@ import Feedback from '../components/Feedback';
 import { Typewriter } from 'react-simple-typewriter';
 import { Fade } from 'react-awesome-reveal';
 import { valueContext } from '../Rootlayout';
+import toast from 'react-hot-toast';
 
 const Home = () => {
 
@@ -116,10 +117,43 @@ const {theme}=useContext(valueContext)
 
         <button  onClick={()=>navigate('/groups')} class="btn btn-soft btn-secondary">See all Groups</button>
       </div>
-        
+        <Feedback></Feedback>
         <Faq></Faq>
 
-        <Feedback></Feedback>
+        {/* Newsletter Section */}
+<section className={`max-w-[1200px] px-4 py-12 ${theme ? "bg-white" : "bg-gray-900"} text-center rounded-2xl  md:mx-auto ml-2 mr-2  my-12`}>
+  <h2 className={`text-3xl font-bold mb-4 ${theme ? "text-indigo-800" : "text-white"}`}>
+    Subscribe to our Newsletter
+  </h2>
+  <p className={`mb-6 ${theme ? "text-gray-700" : "text-gray-300"}`}>
+    Get the latest hobby group updates, tips, and events straight to your inbox.
+  </p>
+  <form
+    onSubmit={(e) => {
+      e.preventDefault();
+      const email = e.target.email.value;
+      if (email) {
+        e.target.reset();
+        toast.success(`Subscribed with ${email}`);
+      }
+    }}
+    className="flex flex-col md:flex-row justify-center gap-4"
+  >
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="Enter your email"
+      className="input input-bordered w-full md:w-80"
+    />
+    <button type="submit" className="btn btn-primary">
+      Subscribe
+    </button>
+  </form>
+</section>
+
+
+        
            
         </div>
     );

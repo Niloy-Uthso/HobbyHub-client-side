@@ -1,20 +1,34 @@
  import React, { useContext } from 'react';
 import { Navigate, NavLink, useLocation, useNavigate } from 'react-router';
 import { valueContext } from '../Rootlayout';
-
+import { CiCloudMoon } from "react-icons/ci";
+import { FaCloudMoon } from "react-icons/fa";
 const Navbar = () => {
     const navigate=useNavigate()
     const {pathname}=useLocation()
 
-    const {handlelogout,currentUser,theme}=useContext(valueContext)
+    const {handlelogout,currentUser,theme,handleTheme}=useContext(valueContext)
      
     
      
     return (
         <>
-        <div className={`navbar px-4 py-2 ${theme ? `bg-blue-950` : `bg-slate-800`} shadow-sm`}>
+        <div className={`navbar  sticky top-0 z-50 px-4 py-2 ${theme ? `bg-blue-950` : `bg-slate-800`} shadow-sm`}>
   <div className="flex-1">
     <a className="font-bold text-pink-700 text-xl md:text-3xl">ℌ𝔬𝔟𝔟𝔶ℌ𝔲𝔟</a>
+     <button
+    onClick={handleTheme}
+    className="ml-4 z-[999] md:ml-8"
+    aria-label="Toggle Theme"
+  >
+    <FaCloudMoon
+      className={`text-3xl ${
+        theme
+          ? 'text-yellow-400 hover:text-black'
+          : 'text-black hover:text-yellow-500'
+      } transition duration-300`}
+    />
+  </button>
   </div>
 
   
@@ -23,9 +37,24 @@ const Navbar = () => {
       <summary className="btn btn-sm btn-ghost text-white">☰</summary>
       <ul className={`menu menu-sm dropdown-content mt-3 p-2 shadow ${theme ? "bg-blue-900" : "bg-slate-700"} rounded-box w-52`}>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/mygroups">My Groups</NavLink></li>
-        <li><NavLink to="/createGroup">Create Groups</NavLink></li>
+       {/* {currentUser && (
+  <>
+    <li><NavLink to="/mygroups">My Groups</NavLink></li>
+    <li><NavLink to="/createGroup">Create Groups</NavLink></li>
+  </>
+)} */}
         <li><NavLink to="/groups">All Groups</NavLink></li>
+        <li><NavLink to="/about">About</NavLink></li>
+        <li><NavLink to="/contact">Contact Us</NavLink></li>
+          {currentUser && (
+            <li><NavLink to="/dashboard">
+    Dashboard
+  </NavLink></li>
+  
+)}
+
+
+           
         {
           currentUser
             ? <li><button onClick={handlelogout}>Logout</button></li>
@@ -68,8 +97,9 @@ const Navbar = () => {
       Home
     </NavLink>
 
-    <NavLink
-      to="/mygroups"
+   {/* {currentUser && (
+  <>
+    <NavLink to="/mygroups"
       className={({ isActive }) =>
         isActive
           ? 'text-indigo-400 text-sm font-bold'
@@ -78,8 +108,7 @@ const Navbar = () => {
       My Groups
     </NavLink>
 
-    <NavLink
-      to="/createGroup"
+    <NavLink to="/createGroup"
       className={({ isActive }) =>
         isActive
           ? 'text-indigo-400 text-sm font-bold'
@@ -87,6 +116,8 @@ const Navbar = () => {
       }>
       Create Groups
     </NavLink>
+  </>
+)} */}
     <NavLink
       to="/groups"
       className={({ isActive }) =>
@@ -96,6 +127,31 @@ const Navbar = () => {
       }>
       All groups
     </NavLink>
+
+    <NavLink
+      to="/about"
+      className={({ isActive }) =>
+        isActive
+          ? 'text-indigo-400 text-sm font-bold'
+          : 'text-[#EFE1C6] text-sm font-semibold'
+      }>
+      About Us
+    </NavLink>
+     <NavLink
+      to="/contact"
+      className={({ isActive }) =>
+        isActive
+          ? 'text-indigo-400 text-sm font-bold'
+          : 'text-[#EFE1C6] text-sm font-semibold'
+      }>
+      Contact Us
+    </NavLink>
+
+    {currentUser && (
+  <NavLink to="/dashboard" className="btn btn-sm">
+    Dashboard
+  </NavLink>
+)}
 
     {
       !currentUser &&

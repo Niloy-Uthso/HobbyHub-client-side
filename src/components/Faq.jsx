@@ -33,7 +33,7 @@ const Faq = () => {
   };
 
   return (
-    <section className={`max-w-5xl md:mx-auto px-6 py-12 ${theme?`bg-gradient-to-br from-pink-50 to-purple-100 `:`bg-gradient-to-br from-purple-800 to-pink-800`} rounded-2xl shadow-xl ml-2 mr-2  mt-10`}>
+    <section className={`max-w-[1200px] md:mx-auto px-6 py-12 ${theme?`bg-gradient-to-br from-pink-50 to-purple-100 `:`bg-gradient-to-br from-purple-800 to-pink-800`} rounded-2xl shadow-xl ml-2 mr-2  mt-10`}>
 
      
 

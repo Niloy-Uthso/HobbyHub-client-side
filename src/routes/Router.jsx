@@ -12,6 +12,12 @@ import Newgroup from "../pages/Newgroup";
 import Allgroups from "../pages/Allgroups";
 import Groupdetails from "../pages/Groupdetails";
 import Updategroup from "../pages/Updategroup";
+import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
+import PrivateRoute from "../components/PrivateRoute";
+import DashboardLayout from "../pages/DashboardLayout";
+import DashboardOverview from "../components/DashboardOverview";
+import DashboardAllgroups from "../pages/DashboardAllgroups";
 
  
 
@@ -25,7 +31,7 @@ import Updategroup from "../pages/Updategroup";
         {
             path:"/",  
             Component:Home,
-            loader:()=>fetch(' https://hobbyhub-server-nine.vercel.app/groups'),
+            loader:()=>fetch('https://hobbyhub-server-nine.vercel.app/groups'),
         },
          {
         path:"/login",
@@ -37,33 +43,115 @@ import Updategroup from "../pages/Updategroup";
      },
       {
       path:"/mygroups",
-      Component:Mygroups, 
-      loader:()=>fetch(' https://hobbyhub-server-nine.vercel.app/groups'),
+
+       element: (
+          <PrivateRoute>
+            <Mygroups />
+          </PrivateRoute>
+        ), 
+      loader:()=>fetch('https://hobbyhub-server-nine.vercel.app/groups'),
      },
      {
         path:"/createGroup",
-        Component:Newgroup,
+        element: (
+          <PrivateRoute>
+            <Newgroup />
+          </PrivateRoute>
+        ),
         
      },
      {
         path:"/groups",
          
         Component:Allgroups,
-        loader:()=>fetch(' https://hobbyhub-server-nine.vercel.app/groups'),
+        loader:()=>fetch('https://hobbyhub-server-nine.vercel.app/groups'),
      },
      {
         path:"/group/:id",
         Component:Groupdetails,
-       loader: ({ params }) => fetch(` https://hobbyhub-server-nine.vercel.app/groups/${params.id}`)
+       loader: ({ params }) => fetch(`https://hobbyhub-server-nine.vercel.app/groups/${params.id}`)
      },
      {
         path:"/mygroups/updateGroup/:id",
-        Component:Updategroup,
-         loader: ({ params }) => fetch(` https://hobbyhub-server-nine.vercel.app/groups/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <Updategroup />
+          </PrivateRoute>
+        ),
+         loader: ({ params }) => fetch(`https://hobbyhub-server-nine.vercel.app/groups/${params.id}`)
 
+     },
+     {
+      path:"/about",
+      Component:AboutUs
+
+     },
+     {
+      path:"/contact",
+      Component:ContactUs
+     },
+     {
+
+       path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <DashboardLayout />
+          </PrivateRoute>
+        ),
+        children:[
+    //       {
+    //   index: true, 
+    //   element: (
+    //     <PrivateRoute>
+    //       <DashboardOverview />
+    //     </PrivateRoute>
+    //   )
+    // },
+
+          {
+            path: "mygroups",
+            element: (
+              <PrivateRoute>
+                <Mygroups />
+              </PrivateRoute>
+            ),
+              loader:()=>fetch('https://hobbyhub-server-nine.vercel.app/groups'),
+          },
+           {
+            path: "create",
+            element: (
+              <PrivateRoute>
+                <Newgroup />
+              </PrivateRoute>
+            ),
+          },
+
+          {
+  path: 'allgroups',
+  element: <DashboardAllgroups />,
+  loader: () => fetch('https://hobbyhub-server-nine.vercel.app/groups')
+}
+        ]
      }
+      
+
 
      
     ]
   },
+
+  //  {
+  //   path: '/dashboard',
+  //   element: (
+  //     <PrivateRoute>
+  //       <DashboardLayout />
+  //     </PrivateRoute>
+  //   ),
+  //   children: [
+  //     { path: 'mygroups', element: <Mygroups /> },
+  //     { path: 'create', element: <Newgroup /> },
+  //     // { path: 'profile', element: <Profile /> },
+  //   ]
+  // },
+  // // { path: '*', element: <NotFound /> }
 ]);
