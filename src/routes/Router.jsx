@@ -140,18 +140,5 @@ import DashboardAllgroups from "../pages/DashboardAllgroups";
     ]
   },
 
-  //  {
-  //   path: '/dashboard',
-  //   element: (
-  //     <PrivateRoute>
-  //       <DashboardLayout />
-  //     </PrivateRoute>
-  //   ),
-  //   children: [
-  //     { path: 'mygroups', element: <Mygroups /> },
-  //     { path: 'create', element: <Newgroup /> },
-  //     // { path: 'profile', element: <Profile /> },
-  //   ]
-  // },
-  // // { path: '*', element: <NotFound /> }
+   
 ]);

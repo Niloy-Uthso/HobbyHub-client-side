@@ -5,10 +5,10 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Optional: clear form fields (if needed)
+  
     e.target.reset();
 
-    // Show SweetAlert
+    
     Swal.fire({
       title: 'Message Sent!',
       text: 'Thank you for reaching out. We’ll get back to you soon.',
@@ -28,7 +28,7 @@ const ContactUs = () => {
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Contact Info */}
+          
           <div className="space-y-6">
             <div>
               <h4 className="text-xl font-semibold text-purple-700 dark:text-pink-300">Email</h4>
@@ -44,7 +44,7 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+        
           <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md space-y-6">
             <input
               type="text"

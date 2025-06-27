@@ -120,7 +120,7 @@ const {theme}=useContext(valueContext)
         <Feedback></Feedback>
         <Faq></Faq>
 
-        {/* Newsletter Section */}
+        
 <section className={`max-w-[1200px] px-4 py-12 ${theme ? "bg-white" : "bg-gray-900"} text-center rounded-2xl  md:mx-auto ml-2 mr-2  my-12`}>
   <h2 className={`text-3xl font-bold mb-4 ${theme ? "text-indigo-800" : "text-white"}`}>
     Subscribe to our Newsletter

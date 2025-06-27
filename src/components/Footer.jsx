@@ -5,13 +5,13 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-indigo-600 to-purple-800 text-white pt-12 pb-8 px-6 mt-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 sm:grid-cols-2 gap-8">
-        {/* Brand */}
+        
         <div>
           <h2 className="text-3xl font-bold mb-3">HobbyHub</h2>
           <p className="text-sm opacity-90">Connect with others. Share your passion. Explore hobbies in real life or online.</p>
         </div>
 
-        {/* Quick Links */}
+        
         <div>
           <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm">
