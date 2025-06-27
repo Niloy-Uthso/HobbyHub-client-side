@@ -1,14 +1,14 @@
  
 
 import React, { useContext, useState } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useLocation } from 'react-router';
 import { valueContext } from '../Rootlayout';
 import { NavLink } from 'react-router';
 
 const DashboardAllgroups = () => {
   const groups = useLoaderData();
   const { theme } = useContext(valueContext);
-
+ const location=useLocation()
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortOrder, setSortOrder] = useState('newest');
 
@@ -80,7 +80,7 @@ const dateB = new Date(parseInt(b._id.substring(0, 8), 16) * 1000);
                 <td>{group.maxMembers}</td>
                 <td>{group.meetingLocation}</td>
                 <td>
-                  <NavLink to={`/group/${group._id}`}>
+                  <NavLink state={{from:location.pathname}} to={`/group/${group._id}`}>
                     <button className="btn btn-sm btn-outline btn-info">Details</button>
                   </NavLink>
                 </td>
